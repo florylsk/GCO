@@ -6,6 +6,7 @@ public class User{
 	private String password;
 	private String firstname;
 	private String lastname;
+	private String mail;
 
 	
 	
@@ -48,6 +49,17 @@ public class User{
 	public void setLastname(String lastname) {
 		this.lastname=lastname;
 	}
+
+
+	public String getMail() {
+		return mail;
+	}
+
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	
 
 
 	

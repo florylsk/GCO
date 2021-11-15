@@ -131,11 +131,24 @@
 		          <h5 class="sidebar-title">Recetas <a href="#modal-add-recipe" class="btn btn-rounded btn-primary btn-sm" style="float: right;" role="button">Añadir</a> </h5>
 		          <div class="sidebar-divider"></div>
 		          <c:forEach items="${recetas}" var="r">
-		          <form id="show-recipe-${r.getId()}" action="showRecipe" method="post">
-		          <a href="#" class="sidebar-link" onclick="document.getElementById('show-recipe-${r.getId()}').submit();" >${r.getNombre()}</a>
-		          <input type="hidden" id="show-recipe" name="recipeName" value="${r.getId()}">
-
-				</form>
+		          		<c:choose>
+				          <c:when test="${r.getId() == Receta.getId()}">
+						 				<form id="show-recipe-${r.getId()}" action="showRecipe" method="post">
+								          <a href="#" class="sidebar-link active" onclick="document.getElementById('show-recipe-${r.getId()}').submit();" >${r.getNombre()}</a>
+								          <input type="hidden" id="show-recipe" name="recipeName" value="${r.getId()}">
+						
+										</form>
+								    	 </c:when>
+						  <c:otherwise>
+					          <form id="show-recipe-${r.getId()}" action="showRecipe" method="post">
+					          <a href="#" class="sidebar-link" onclick="document.getElementById('show-recipe-${r.getId()}').submit();" >${r.getNombre()}</a>
+					          <input type="hidden" id="show-recipe" name="recipeName" value="${r.getId()}">
+					          </form>
+					      </c:otherwise>
+		
+						
+						 
+						</c:choose>
 		          </c:forEach>
 		        </div>
 		      </div>

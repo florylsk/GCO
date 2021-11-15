@@ -165,11 +165,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="create-student-ingredients" class="required">Ingredientes</label>
-                                <input type="text" name="ingredients" id="create-recipe-ingredients" class="form-control" required="required" placeholder="Ingredientes de la receta"/>
+                                <textarea name="ingredients" id="create-recipe-ingredients" class="form-control" required="required" placeholder="Ingredientes de la receta"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="create-student-recipe" class="required">Receta</label>
-                                <input type="text" name="recipe" id="create-recipe-recipe" class="form-control" required="required" placeholder="Pasos para su preparación"/>
+                                <textarea name="recipe" id="create-recipe-recipe" class="form-control" required="required" placeholder="Pasos para su preparación"></textarea>
                             </div>
                             <div class="text-center mt-20">
                             	<a class="btn mr-5" href="#"  type="button">Cancelar</a>

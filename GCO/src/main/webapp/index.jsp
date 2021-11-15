@@ -78,7 +78,7 @@
             <nav class="navbar">
 		            <div class="navbar-content">
 		         <button id="toggle-sidebar-btn" class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
-		             <img src="${pageContext.request.contextPath}/resources/images/Hamburger_icon_dark.png" height="100%" width="70%" alt="missing file">
+		             <i class="fas fa-bars"></i>
 		         </button>
 		       </div>
                 <%-- Navbar brand --%>

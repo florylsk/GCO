@@ -15,7 +15,26 @@
         <link href="${pageContext.request.contextPath}/resources/css/halfmoon-variables.min.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/resources/js/halfmoon.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/fa.7465cf6e1c.js"></script>
-        
+        <script type="text/javascript">
+  			function correct_Add(){
+	         	halfmoon.initStickyAlert({
+		        content: "Receta añadida con éxito",
+		        title: "Éxito",
+		        alertType: "alert-success",
+		        hasDismissButton: true,
+		        timeShown: 5000,
+		    })
+				}
+  			function incorrect_Add(){
+	         	halfmoon.initStickyAlert({
+		        content: "Algo ha ido mal",
+		        title: "Receta no añadida",
+		        alertType: "alert-danger",
+		        hasDismissButton: true,
+		        timeShown: 5000,
+		    })
+				}
+  		</script>
         
 
 </head>
@@ -25,18 +44,35 @@
 				<%  
 					List<Recipe> recetas=RecipeDAO.getAllRecipes();
 					request.setAttribute("recetas",recetas);  
-					String idRecetaToShow=(String)request.getAttribute("recipeToShow");
-					Recipe varRecipe=null;
-					for (Recipe r: recetas){
-						if (r.getId().equals(idRecetaToShow)){
-							varRecipe=new Recipe(r.getId(),r.getNombre(),r.getIngredientes(),r.getDescripcion());
-						}
-					}
-					request.setAttribute("Receta",varRecipe);
+					Recipe RecetaToShow=(Recipe)request.getAttribute("recipeToShow");
+					request.setAttribute("Receta",RecetaToShow);
 				%>
 
-	<div  class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down"">
-		
+	<div  class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+		<%-- Sticky alerts (toasts), empty container --%>
+            <div class="sticky-alerts"></div>
+			 <c:if test="${correctAddedRecipe == true}">
+				 				<script>
+				 				 window.onload = function() {
+				 				    correct_Add();
+				 				  };
+						         	</script>
+						         	
+									<%
+										request.setAttribute("correctAddedRecipe",false);
+									%>
+						    	 </c:if>
+			 <c:if test="${incorrectAddedRecipe == true}">
+				 				<script>
+				 				 window.onload = function() {
+				 				    incorrect_Add();
+				 				  };
+						         	</script>
+						         	
+									<%
+										request.setAttribute("incorrectAddedRecipe",false);
+									%>
+						    	 </c:if>
 		
 		<%-- Navbar --%>
             <nav class="navbar">
@@ -92,7 +128,7 @@
 		      <div class="sidebar">
 		        <div class="sidebar-menu">
 		          <!-- Sidebar links and titles -->
-		          <h5 class="sidebar-title">Recetas</h5>
+		          <h5 class="sidebar-title">Recetas <a href="#modal-add-recipe" class="btn btn-rounded btn-primary btn-sm" style="float: right;" role="button">Añadir</a> </h5>
 		          <div class="sidebar-divider"></div>
 		          <c:forEach items="${recetas}" var="r">
 		          <form id="show-recipe-${r.getId()}" action="showRecipe" method="post">
@@ -104,22 +140,49 @@
 		        </div>
 		      </div>
 		      <!-- Sidebar end -->
+		      
+		      <div class="modal" id="modal-add-recipe" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <h5 class="modal-title text-center">Añadir Receta</h5>
+                        <form id="add-recipe" action="addRecipe" method="post">
+                            <div class="form-group">
+                                <label for="create-student-firstname" class="required">Nombre</label>
+                                <input type="text" name="name" id="create-recipe-name" class="form-control" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label for="create-student-ingredients" class="required">Ingredientes</label>
+                                <input type="text" name="ingredients" id="create-recipe-ingredients" class="form-control" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label for="create-student-recipe" class="required">Receta</label>
+                                <input type="text" name="recipe" id="create-recipe-recipe" class="form-control" required="required"/>
+                            </div>
+                            <div class="text-center mt-20">
+                            	<a class="btn mr-5" href="#"  type="button">Cancelar</a>
+                            	<input class="btn btn-primary" type="submit" value="Añadir Receta">
+                      	    </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
 
 				
 								<div class="content-wrapper">
 				        			<div class="container-fluid">
 				           			 <div class="row">
-				               			 <div class="col col-xl-9">
-				               			 	<h3> &nbsp;&nbsp;&nbsp;${Receta.getNombre()}</h3>
+				               			 <div class="col col-xl-12">
+				               			 	<h3 class="text-center font-weight-bold">${Receta.getNombre()}</h3>
 				               			 	 <div class="card p-0">
 							                    <div class="content">
-							                      <h2 class="content-title">
+							                      <h2 class="content-title font-weight-bold">
 							                        Ingredientes
 							                      </h2>
 							                      <p>
 							                          ${Receta.getIngredientes()}
 							                      </p>
-													<h2 class="content-title">
+													<h2 class="content-title font-weight-bold">
 							                        Receta
 							                      </h2>
 							                      <p>

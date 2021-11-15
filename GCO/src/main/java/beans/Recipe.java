@@ -2,7 +2,7 @@ package beans;
 
 
 public class Recipe{
-	private String id;
+	private int id;
 	private String nombre;
 	private String ingredientes;
 	private String descripcion;
@@ -10,19 +10,21 @@ public class Recipe{
 	
 	
 	
+	public Recipe(int id,String nombre, String ingredientes, String descripcion) {
+		  this.id=id;
+		  this.nombre=nombre;
+		  this.ingredientes=ingredientes;
+		  this.descripcion=descripcion;
+		 }
 	
-	public Recipe(String id, String nombre, String ingredientes, String descripcion) {
-		  this.id=id; 
+	public Recipe(String nombre, String ingredientes, String descripcion) {
 		  this.nombre=nombre;
 		  this.ingredientes=ingredientes;
 		  this.descripcion=descripcion;
 		 }
 
 
-
-
-
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -30,7 +32,7 @@ public class Recipe{
 
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

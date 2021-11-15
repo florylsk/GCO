@@ -161,15 +161,15 @@
                         <form id="add-recipe" action="addRecipe" method="post">
                             <div class="form-group">
                                 <label for="create-student-firstname" class="required">Nombre</label>
-                                <input type="text" name="name" id="create-recipe-name" class="form-control" required="required" />
+                                <input type="text" name="name" id="create-recipe-name" class="form-control" required="required" placeholder="Nombre de la receta"/>
                             </div>
                             <div class="form-group">
                                 <label for="create-student-ingredients" class="required">Ingredientes</label>
-                                <input type="text" name="ingredients" id="create-recipe-ingredients" class="form-control" required="required" />
+                                <input type="text" name="ingredients" id="create-recipe-ingredients" class="form-control" required="required" placeholder="Ingredientes de la receta"/>
                             </div>
                             <div class="form-group">
                                 <label for="create-student-recipe" class="required">Receta</label>
-                                <input type="text" name="recipe" id="create-recipe-recipe" class="form-control" required="required"/>
+                                <input type="text" name="recipe" id="create-recipe-recipe" class="form-control" required="required" placeholder="Pasos para su preparación"/>
                             </div>
                             <div class="text-center mt-20">
                             	<a class="btn mr-5" href="#"  type="button">Cancelar</a>
@@ -181,7 +181,7 @@
                 </div>
             </div>
 
-				
+						<c:if test="${Receta.getId()>0}">
 								<div class="content-wrapper">
 				        			<div class="container-fluid">
 				           			 <div class="row">
@@ -210,6 +210,7 @@
 				              		 </div>
 				              	 </div>
 				               </div>
+				               </c:if>
 		</div>
 
 	

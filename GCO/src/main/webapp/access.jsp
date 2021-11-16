@@ -19,7 +19,7 @@
         <script type="text/javascript">
  			 <%--Toast for showing login credentials --%>
   			function toastAlert() {
-  		  	var alertContent = "ajimenez:Y9gMQe&3A?\njalvarez:_m6A!GVqVe\nphernandez:+gnMN7Ve93";
+  		  	var alertContent = "(usuario)ajimenez:Y9gMQe&3A?\n(admin)jalvarez:_m6A!GVqVe\n(admin)phernandez:+gnMN7Ve93";
     		halfmoon.initStickyAlert({
       		content: alertContent,      
       		title: "Usuario:Contraseña"      

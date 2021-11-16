@@ -119,13 +119,24 @@
             
 	            <c:forEach items="${recipesSearched}" var="r">
 	            	<tr>
-	            		<td>${r.getNombre()}	
+	            		<td><a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a></td>	
 	            	</tr>
-	            	
+	            	<div class="modal modal-full" id="modal-description-receta-${r.getId()}" tabindex="-1" role="dialog">
+              							  <div class="modal-dialog" role="document">
+                   							 <div class="modal-content"> 
+                       						   <h4 class="modal-text text-center font-weight-bold">${r.getNombre()}</h4>
+                       						   <h5 class="modal-text text-left font-weight-bold">Ingredientes</h5>
+                       						   <p>${r.getIngredientes()}<p>
+                       						   <h5 class="modal-text text-left font-weight-bold">Receta</h5>
+                       						   <p>${r.getDescripcion()}<p>
+								        </div>
+								   </div>
+								 </div>
 	            </c:forEach>
 	            
 	            	</tbody>
 	            	</table>
+	            	<div class="divider mt-0 mb-5 border-bottom"></div>
 	           </div>
             
             </div>

@@ -111,8 +111,8 @@
                 <div class="card mw-800 w-lg-600 left-auto right-auto d-inline-block" style="position:absolute;">
                     <%-- When responsive mode is active, this div is shown hiding the left column --%>
                     <div class="text-center d-inline-block d-lg-none">
-                        <img alt="AulaMaster Dark Mode Logo" class="w-150 mr-20 hidden-lm" src="${pageContext.request.contextPath}/resources/images/AulaMaster-logos_white.png" style="width:20rem;"/>
-                        <img alt="AulaMaster Light Mode Logo" class="w-150 mr-20 hidden-dm" src="${pageContext.request.contextPath}/resources/images/AulaMaster-logos_black.png" style="width:20rem;"/>
+                        <img alt="AulaMaster Dark Mode Logo" class="w-150 mr-20 hidden-lm" src="${pageContext.request.contextPath}/resources/images/Almon-logos_white.png" style="width:28rem;"/>
+                        <img alt="AulaMaster Light Mode Logo" class="w-150 mr-20 hidden-dm" src="${pageContext.request.contextPath}/resources/images/Almon-logos_black.png" style="width:28rem;"/>
                     </div>
                     
                     <div class="container-fluid">
@@ -123,8 +123,8 @@
                         <div class="row">
 
                             <div class="col text-center mt-20 pt-20 d-none d-lg-block" id="access-logo">
-                                <img alt="AulaMaster Dark Mode Logo" class="w-150 mr-20 hidden-lm" src="${pageContext.request.contextPath}/resources/images/AulaMaster-logos_white.png" style="width:22rem!important;margin-right: 1rem!important;" />
-                                <img alt="AulaMaster Light Mode Logo" class="w-150 mr-20 hidden-dm" src="${pageContext.request.contextPath}/resources/images/AulaMaster-logos_black.png" style="width:22rem!important;margin-right: 1rem!important;" />
+                                <img alt="AulaMaster Dark Mode Logo" class="w-150 mr-20 hidden-lm" src="${pageContext.request.contextPath}/resources/images/Almon-logos_white.png" style="width:28rem!important;margin-right: 1rem!important;" />
+                                <img alt="AulaMaster Light Mode Logo" class="w-150 mr-20 hidden-dm" src="${pageContext.request.contextPath}/resources/images/Almon-logos_black.png" style="width:28rem!important;margin-right: 1rem!important;" />
                             </div>
                             <div class="col">
 

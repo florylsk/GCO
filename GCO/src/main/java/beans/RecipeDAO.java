@@ -54,9 +54,33 @@ public class RecipeDAO{
 		return status;
 	}
 	
-	
-	
+	public static List<Recipe> getSearchRecipes(String keyword){
+		List<Recipe> recetas = new ArrayList<Recipe>();
+		String _keyword="%"+keyword+"%";
+		try {
+			Connection con= connectionDB.getConnection();
+			PreparedStatement ps=con.prepareStatement("select * from recetas where nombre LIKE ? or ingredientes LIKE ? or descripcion like ?");
+			ps.setString(1, _keyword);
+			ps.setString(2, _keyword);
+			ps.setString(3, _keyword);
+			ResultSet rs=ps.executeQuery();
+			while (rs.next()) {
+				Recipe s = new Recipe(rs.getInt("id"),rs.getString("nombre"),rs.getString("ingredientes"),rs.getString("descripcion")); 
+				recetas.add(s);
+			}
+			con.close();
+		
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
+		
+		return recetas;
+	}
+	
+	
 	
 	
 

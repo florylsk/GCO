@@ -90,6 +90,8 @@
                 <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
           			<li class="nav-item active">
            				 <a href="index.jsp" class="nav-link">Home</a>
+           			<li class="nav-item">
+           				 <a href="search.jsp" class="nav-link">Search</a>
       			  </ul>
                 <%-- Navbar form. Here, search, help and profile buttons are shown --%>
                 <div class="navbar-content d-none d-md-flex ml-auto">

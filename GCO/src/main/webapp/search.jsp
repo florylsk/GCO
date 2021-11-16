@@ -112,7 +112,8 @@
                 	<table class="table table-striped table-hover sortable" id="estudiantes">
             			<thead>
               				<tr>
-                 				<th style="width: 100%">Receta</th>
+                 				<th style="width: 90">Receta</th>
+                 				<th class="text" style="width: 10%">Acciones</th>
               				</tr>
 		            	</thead>
         		    	<tbody>
@@ -120,6 +121,9 @@
 	            <c:forEach items="${recipesSearched}" var="r">
 	            	<tr>
 	            		<td><a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a></td>	
+	            		<td class="text">
+	            		  <a href="#modal-update-recipe-${r.getId()}" class="btn btn-square btn-primary ml-5" role="button" data-toggle="tooltip" data-title="Actualizar Estudiante" data-placement="left"><i class="fas fa-edit"></i></a>
+	            		</td>
 	            	</tr>
 	            	<div class="modal modal-full" id="modal-description-receta-${r.getId()}" tabindex="-1" role="dialog">
               							  <div class="modal-dialog" role="document">
@@ -132,6 +136,34 @@
 								        </div>
 								   </div>
 								 </div>
+								 
+				 	<div class="modal" id="modal-update-recipe-${r.getId()}" tabindex="-1" role="dialog">
+              							  <div class="modal-dialog" role="document">
+                   							 <div class="modal-content">
+                     						   <h5 class="modal-title text-center">Modificar Receta</h5>
+						                        <form id="update-recipe" action="updateRecipe" method="post">
+						                             <input type="hidden" id="update-recipe-id" name="id" value="${r.getId()}">
+						                            <div class="form-group text-left">
+						                                <label for="update-student-firstname" class="required">Nombre</label>
+						                                <input type="text" name="nombre" id="update-recipe-nombre" class="form-control" required="required" value="${r.getNombre()}" />
+						                            </div>
+						                            <div class="form-group text-left">
+						                                <label for="update-student-surnames" class="required">Apellidos</label>
+						                                <textarea name="ingredientes" id="update-recipe-ingredientes" class="form-control" required="required">${r.getIngredientes()}</textarea>
+						                            </div>
+						                            <div class="form-group text-left">
+						                                <label for="update-student-birth" class="required">Fecha de nacimiento</label>
+						                                <textarea name="descripcion" id="update-recipe-receta" class="form-control" required="required">${r.getDescripcion()}</textarea>
+						                            </div>
+						                            <div class="text-center mt-20">
+						                            <a class="btn mr-5" href="#" type="button">Cancelar</a>
+						                            <input class="btn btn-primary" type="submit" value="Modificar estudiante">
+						                      	    </div>
+						                        </form>
+                        
+								       </div>
+								 </div>
+						</div>
 	            </c:forEach>
 	            
 	            	</tbody>

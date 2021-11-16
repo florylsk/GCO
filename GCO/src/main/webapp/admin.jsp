@@ -90,7 +90,7 @@
 				%>  
             
             <div id="records">
-                	<table class="table table-striped" id="records">
+                	<table class="table table-striped table-hover" id="records">
             			<thead>
               				<tr>
                  				<th style="width: 20%">Username</th>

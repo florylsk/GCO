@@ -8,8 +8,11 @@ use GCO;
 drop table if exists users;
 create table users(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null);
 insert into users values('ajimenez','Y9gMQe&3A?','Alvaro','Jimenez','ajimenez@test.com');
-insert into users values('jalvarez','_m6A!GVqVe','Javier','Alvarez','jalvarez@test.com');
-insert into users values('phernandez','+gnMN7Ve93','Pablo','Hernandez','phernandez@test.com');
+
+drop table if exists admins;
+create table admins(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null);
+insert into admins values('jalvarez','_m6A!GVqVe','Javier','Alvarez','jalvarez@test.com');
+insert into admins values('phernandez','+gnMN7Ve93','Pablo','Hernandez','phernandez@test.com');
 
 drop table if exists recetas;
 create table recetas(id mediumint primary key AUTO_INCREMENT,nombre varchar(100), ingredientes varchar(500), descripcion varchar(2500));
@@ -27,3 +30,8 @@ insert into recetas values(8,"Bizcocho con manzana y crema pastelera","Para la c
 insert into recetas values(9,"Bizcocho de fresas y nata","230g de aceite de girasol, 350g de harina de trigo, 250g de azúcar, 100g de nata líquida para montar, 4 huevos grandes, 1 sobre de levadura química y 12 fresas.","Precalentamos el horno a 190 grados centígrados con calor arriba y abajo. Engrasamos un molde redondo, mejor desmontable, con un poco de mantequilla derretida. En un bol batimos los huevos a temperatura ambiente junto con el azúcar hasta que doblen el volumen y blanqueen. Seguidamente le añadimos el aceite en chorro fino y la nata ligeramente montada y mezclamos. Tamizamos la harina junto con la levadura química y la incorporamos a la mezcla. Lavamos y picamos las fresas y las rebozamos con una cucharada de harina, introduciéndolas en la masa suavemente. Vertemos la mezcla en el molde y horneamos durante cuarenta y cinco minutos aproximadamente o hasta que al pinchar el bizcocho con un palillo éste salga limpio.");
 insert into recetas values(10,"Pastel de melocotón y tomillo","125g de harina de reposterías, 4g de levadura química, 1 pizca de sal, 1 cucharadita de tomillo seco, 100g de azúcar, 7g de azúcar vainillado, 1 huevo grande a temperatura ambiente, 125ml de buttermilk o de leche mezclada con una cucharadita de zumo de limón, 50g de mantequilla sin sal a temperatura ambiente, 1 melocotón grande, azúcar extra para espolvorear.","Precalentar el horno a 180º C y preparar un molde redondo rizado de unos 22 cm de diámetro, engrasándolo bien. Tamizar en un cuenco la harina con la levadura química, la sal y el tomillo. En otro recipiente, batir la mantequilla troceada con el azúcar y el azúcar vainillado, usando una batidora de varillas, hasta que quede una mezcla suave. Añadir el huevo y batir un poco más. Incorporar la mezcla de harina y el buttermilk alternando cada adición, batiendo a velocidad baja después de cada vez, empezando y terminando con la harina. Repartir la masa en el molde, igualando la superficie con el dorso de una espátula o cuchara. Lavar bien y trocear el melocotón en gajos, dejando o quitando la piel al gusto. Repartir sobre la superficie de la masa, presionando ligeramente. Espolvorear con un poco más de azúcar y de tomillo. Hornear sobre una rejilla durante unos 35 minutos, hasta que esté bien dorado. Dejar enfriar completamente antes de servir. Si el molde es desmontable, retirar cuando se haya enfriado un poco y dejar sobre una rejilla.");
 select * from recetas;
+
+
+drop table if exists records;
+create table records(username varchar(100),firstname varchar(100), lastname varchar(100), fecha_inicio datetime,fecha_salida datetime);
+select * from records;

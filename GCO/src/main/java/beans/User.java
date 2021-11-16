@@ -7,7 +7,7 @@ public class User{
 	private String firstname;
 	private String lastname;
 	private String mail;
-
+	private boolean isAdmin;
 	
 	
 	
@@ -58,6 +58,16 @@ public class User{
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 

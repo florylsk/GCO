@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width" />
 
         <%-- Title --%>
-        <title>Home - GCO</title>
+        <title>Search - GCO</title>
 
         <%-- CSS and JS--%>
         <link href="${pageContext.request.contextPath}/resources/css/halfmoon-variables.min.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
 		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 		
 		
-		<div  class="page-wrapper with-navbar" data-sidebar-type="overlayed-sm-and-down">
+		<div  class="page-wrapper with-navbar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
 		<%-- Sticky alerts (toasts), empty container --%>
             <div class="sticky-alerts"></div>
 			 <c:if test="${correctUpdatedRecipe == true}">
@@ -184,7 +184,7 @@
 	            <c:forEach items="${recipesSearched}" var="r">
 	            	<tr>
 	            		<td><a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a></td>	
-	            		<td class="text">
+	            		<td class="text text-right">
 	            		  <a href="#modal-update-recipe-${r.getId()}" class="btn btn-square btn-primary ml-5" role="button"><i class="fas fa-edit"></i></a>
 	            		  <a href="#modal-delete-recipe-${r.getId()}" class="btn btn-square btn-danger ml-5" role="button"><i class="fas fa-trash"></i></a>	  
 	            		  
@@ -231,22 +231,22 @@
 						</div>
 						
 						    									  				
-        		    			 <div class="modal" id="modal-delete-recipe-${r.getId()}" tabindex="-1" role="dialog">
-               						<div class="modal-dialog" role="document">
-                   						<div class="modal-content">
-                    						 <h5 class="modal-title text-center">Borrar receta</h5>
-                     							 <p class="text-left">
-                          						¿Está seguro de querer borrar la receta ${r.getNombre()}?
-                        						</p>
-                     						 <div class="text-center">
-                           						 <form action="deleteRecipe" method="post">
-                           					<a class="btn mr-5" href="#"  type="button">Cancelar</a>
-    										<button type="submit"name="id" value="${r.getId()}"class="btn btn-danger" type="button" >Borrar Estudiante</button>
-											</form>
-                            
-                       					 </div>
-                   					</div>
-               				 </div>
+    		    			 <div class="modal" id="modal-delete-recipe-${r.getId()}" tabindex="-1" role="dialog">
+           						<div class="modal-dialog" role="document">
+               						<div class="modal-content">
+                						 <h5 class="modal-title text-center">Borrar receta</h5>
+                 							 <p class="text-left">
+                      						¿Está seguro de querer borrar la receta ${r.getNombre()}?
+                    						</p>
+                 						 <div class="text-center">
+                       						 <form action="deleteRecipe" method="post">
+                       					<a class="btn mr-5" href="#"  type="button">Cancelar</a>
+										<button type="submit"name="id" value="${r.getId()}"class="btn btn-danger" type="button" >Borrar Estudiante</button>
+							</form>
+                        
+                   					 </div>
+               					</div>
+           				 </div>
            			 </div>
 	            </c:forEach>
 	            
@@ -265,11 +265,21 @@
             
             
             
+            <nav class="navbar navbar-fixed-bottom">
+                	<div class="container-fluid">
+                   	 <ul class="navbar-nav ml-auto">
+                      	  <li class="nav-item">
+                        	    <a href="#" class="nav-link">Política de privacidad</a>
+                      	  </li>
+                  	  </ul>
+                  	  <span class="navbar-text"> &copy; Almon </span>
+               	 </div>
+			</nav>
+		</div>
             
             
             
-            
-          		</div>
+          		
 
 	
 

@@ -37,18 +37,29 @@ public class UserLoginServlet extends HttpServlet{
 		String pWord = req.getParameter("password");
 		//crea un objeto admin temporal y lo valida
 		User user = new User(uName,pWord);
-		boolean login=loginDAO.validate(user);
+		int login=loginDAO.validate(user);
 		
 			//si login bueno proporciona los atributos de la sesion para procesarlos en el jsp
-			if (login) {	
+			if (login==1) {	
 				HttpSession session = req.getSession();
 				session.setAttribute("nombre", user.getFirstname());
 				session.setAttribute("apellido", user.getLastname());
 				session.setAttribute("username", user.getUsername());
+				session.setAttribute("isAdmin", false);
 				req.getRequestDispatcher("index.jsp").forward(req, res);
 				
 				
-			} else {
+			}
+			else if (login==2) {
+				HttpSession session = req.getSession();
+				session.setAttribute("nombre", user.getFirstname());
+				session.setAttribute("apellido", user.getLastname());
+				session.setAttribute("username", user.getUsername());
+				session.setAttribute("isAdmin", true);
+				req.getRequestDispatcher("admin.jsp").forward(req, res);
+			}
+			
+			else {
 				req.setAttribute("incorrect", true);
 				req.getRequestDispatcher("access.jsp").forward(req, res);
 				

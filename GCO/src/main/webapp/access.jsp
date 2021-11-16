@@ -116,7 +116,7 @@
                     </div>
                     
                     <div class="container-fluid">
-                    	<p style="font-size:3rem;line-height:1.3;">¡Bienvenido a AulaMaster!</p>
+                    	<p style="font-size:3rem;line-height:1.3;">¡Bienvenido a Almon!</p>
                         <button class="btn" type="button" onclick="toastAlert()">Perfiles por defecto</button>
                         <button class="btn btn-primary" type="button" onclick="showLogin()" id="login-switch">Iniciar Sesión</button>
                         <button class="btn" type="button" onclick="showRegistration()" id="register-switch">Registro</button>
@@ -218,7 +218,7 @@
                         	    <a href="#" class="nav-link">Política de privacidad</a>
                       	  </li>
                   	  </ul>
-                  	  <span class="navbar-text"> &copy; AulaMaster </span>
+                  	  <span class="navbar-text"> &copy; Almon </span>
                	 </div>
 			</nav>
 		</div>

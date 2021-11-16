@@ -48,7 +48,7 @@
 					request.setAttribute("Receta",RecetaToShow);
 				%>
 
-	<div  class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+	<div  class="page-wrapper with-navbar with-navbar-fixed-bottom with-sidebar" data-sidebar-type="overlayed-sm-and-down">
 		<%-- Sticky alerts (toasts), empty container --%>
             <div class="sticky-alerts"></div>
 			 <c:if test="${correctAddedRecipe == true}">
@@ -213,7 +213,18 @@
 				              	 </div>
 				               </div>
 				               </c:if>
+				               <nav class="navbar navbar-fixed-bottom">
+                	<div class="container-fluid">
+                   	 <ul class="navbar-nav ml-auto">
+                      	  <li class="nav-item">
+                        	    <a href="#" class="nav-link">Política de privacidad</a>
+                      	  </li>
+                  	  </ul>
+                  	  <span class="navbar-text"> &copy; Almon </span>
+               	 </div>
+			</nav>
 		</div>
+		
 
 	
 

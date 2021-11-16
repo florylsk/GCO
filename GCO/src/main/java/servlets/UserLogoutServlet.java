@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import beans.*;
+
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
 import javax.jms.QueueConnectionFactory;
@@ -33,13 +36,21 @@ public class UserLogoutServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
     	HttpSession session = req.getSession();
-		
-		try {
-        session.invalidate();
-		}catch
-			(Exception e){System.out.println(e);
+		Boolean isAdmin = (boolean)session.getAttribute("isAdmin");
+		if (!isAdmin) {
+		String username = (String) session.getAttribute("username");
+        String name=(String) session.getAttribute("nombre");
+        String lastName=(String) session.getAttribute("apellido");
+        
+        Date _inicio = new Date(session.getCreationTime());
+        Date _fin = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String inicio = sdf.format(_inicio);
+        String fin = sdf.format(_fin);  
+		Record record= new Record(username,name,lastName,inicio,fin);
+		int status=RecordDAO.createRecord(record);
 		}
-		
+		session.invalidate();
 		res.sendRedirect("access.jsp");
 	
     	

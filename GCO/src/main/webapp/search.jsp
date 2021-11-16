@@ -34,6 +34,24 @@
 		        timeShown: 5000,
 		    })
 				}
+  			function correct_Delete(){
+	         	halfmoon.initStickyAlert({
+		        content: "Receta eliminada con éxito",
+		        title: "Éxito",
+		        alertType: "alert-success",
+		        hasDismissButton: true,
+		        timeShown: 5000,
+		    })
+				}
+  			function incorrect_Delete(){
+	         	halfmoon.initStickyAlert({
+		        content: "La receta no ha podido ser eliminada",
+		        title: "Algo ha ido mal",
+		        alertType: "alert-danger",
+		        hasDismissButton: true,
+		        timeShown: 5000,
+		    })
+				}
   		</script>
         
 
@@ -66,6 +84,28 @@
 						         	
 									<%
 										request.setAttribute("incorrectUpdatedRecipe",false);
+									%>
+						    	 </c:if>
+			 <c:if test="${correctDeletedRecipe == true}">
+				 				<script>
+				 				 window.onload = function() {
+				 				    correct_Delete();
+				 				  };
+						         	</script>
+						         	
+									<%
+										request.setAttribute("correctDeletedRecipe",false);
+									%>
+						    	 </c:if>
+			 <c:if test="${incorrectDeletedRecipe == true}">
+				 				<script>
+				 				 window.onload = function() {
+				 				    incorrect_Delete();
+				 				  };
+						         	</script>
+						         	
+									<%
+										request.setAttribute("incorrectDeletedRecipe",false);
 									%>
 						    	 </c:if>
 		
@@ -132,11 +172,11 @@
 	                
 	                
 	             <div id="recipes-searched">
-                	<table class="table table-striped table-hover sortable" id="estudiantes">
+                	<table class="table table-striped table-hover sortable" id="Recetas">
             			<thead>
               				<tr>
                  				<th style="width: 90">Receta</th>
-                 				<th class="text" style="width: 10%">Acciones</th>
+                 				<th class="text text-right" style="width: 10%">Acciones</th>
               				</tr>
 		            	</thead>
         		    	<tbody>
@@ -145,7 +185,9 @@
 	            	<tr>
 	            		<td><a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a></td>	
 	            		<td class="text">
-	            		  <a href="#modal-update-recipe-${r.getId()}" class="btn btn-square btn-primary ml-5" role="button" data-toggle="tooltip" data-title="Actualizar Estudiante" data-placement="left"><i class="fas fa-edit"></i></a>
+	            		  <a href="#modal-update-recipe-${r.getId()}" class="btn btn-square btn-primary ml-5" role="button"><i class="fas fa-edit"></i></a>
+	            		  <a href="#modal-delete-recipe-${r.getId()}" class="btn btn-square btn-danger ml-5" role="button"><i class="fas fa-trash"></i></a>	  
+	            		  
 	            		</td>
 	            	</tr>
 	            	<div class="modal modal-full" id="modal-description-receta-${r.getId()}" tabindex="-1" role="dialog">
@@ -187,6 +229,25 @@
 								       </div>
 								 </div>
 						</div>
+						
+						    									  				
+        		    			 <div class="modal" id="modal-delete-recipe-${r.getId()}" tabindex="-1" role="dialog">
+               						<div class="modal-dialog" role="document">
+                   						<div class="modal-content">
+                    						 <h5 class="modal-title text-center">Borrar receta</h5>
+                     							 <p class="text-left">
+                          						¿Está seguro de querer borrar la receta ${r.getNombre()}?
+                        						</p>
+                     						 <div class="text-center">
+                           						 <form action="deleteRecipe" method="post">
+                           					<a class="btn mr-5" href="#"  type="button">Cancelar</a>
+    										<button type="submit"name="id" value="${r.getId()}"class="btn btn-danger" type="button" >Borrar Estudiante</button>
+											</form>
+                            
+                       					 </div>
+                   					</div>
+               				 </div>
+           			 </div>
 	            </c:forEach>
 	            
 	            	</tbody>

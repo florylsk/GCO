@@ -84,9 +84,7 @@ public class RecipeDAO{
 		int status=0;
 		try {
 			Connection con=connectionDB.getConnection();
-			PreparedStatement ps=con.prepareStatement("set NAMES utf8");
-			boolean _status=ps.execute();
-			ps=con.prepareStatement("update recetas set nombre=?,ingredientes=?,descripcion=? where id=?");
+			PreparedStatement ps=con.prepareStatement("update recetas set nombre=?,ingredientes=?,descripcion=? where id=?");
 			ps.setString(1, recipe.getNombre());
 			ps.setString(2, recipe.getIngredientes());
 			ps.setString(3, recipe.getDescripcion());

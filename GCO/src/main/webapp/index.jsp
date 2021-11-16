@@ -85,7 +85,7 @@
                 <a href="index.jsp" class="navbar-brand font-size-16">
                     <img alt="UPFV Dark Mode Logo" class="hidden-lm" src="${pageContext.request.contextPath}/resources/images/logo_white_small.png">
                     <img alt="UPFV Light Mode Logo" class="hidden-dm" src="${pageContext.request.contextPath}/resources/images/logo_black_small.png">
-                    Recetas
+                    Almon
                 </a>
                 <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
           			<li class="nav-item active">

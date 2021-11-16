@@ -16,19 +16,19 @@
         <script src="${pageContext.request.contextPath}/resources/js/halfmoon.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/fa.7465cf6e1c.js"></script>
         <script type="text/javascript">
-  			function correct_Add(){
+  			function correct_Update(){
 	         	halfmoon.initStickyAlert({
-		        content: "Receta añadida con éxito",
+		        content: "Receta modificada con éxito",
 		        title: "Éxito",
 		        alertType: "alert-success",
 		        hasDismissButton: true,
 		        timeShown: 5000,
 		    })
 				}
-  			function incorrect_Add(){
+  			function incorrect_Update(){
 	         	halfmoon.initStickyAlert({
-		        content: "Algo ha ido mal",
-		        title: "Receta no añadida",
+		        content: "La receta no ha podido ser modificada",
+		        title: "Algo ha ido mal",
 		        alertType: "alert-danger",
 		        hasDismissButton: true,
 		        timeShown: 5000,
@@ -44,7 +44,30 @@
 		
 		
 		<div  class="page-wrapper with-navbar" data-sidebar-type="overlayed-sm-and-down">
-		
+		<%-- Sticky alerts (toasts), empty container --%>
+            <div class="sticky-alerts"></div>
+			 <c:if test="${correctUpdatedRecipe == true}">
+				 				<script>
+				 				 window.onload = function() {
+				 				    correct_Update();
+				 				  };
+						         	</script>
+						         	
+									<%
+										request.setAttribute("correctUpdatedRecipe",false);
+									%>
+						    	 </c:if>
+			 <c:if test="${incorrectUpdatedRecipe == true}">
+				 				<script>
+				 				 window.onload = function() {
+				 				    incorrect_Update();
+				 				  };
+						         	</script>
+						         	
+									<%
+										request.setAttribute("incorrectUpdatedRecipe",false);
+									%>
+						    	 </c:if>
 		
 		<nav class="navbar">
 		            <div class="navbar-content">
@@ -145,15 +168,15 @@
 						                             <input type="hidden" id="update-recipe-id" name="id" value="${r.getId()}">
 						                            <div class="form-group text-left">
 						                                <label for="update-student-firstname" class="required">Nombre</label>
-						                                <input type="text" name="nombre" id="update-recipe-nombre" class="form-control" required="required" value="${r.getNombre()}" />
+						                                <input type="text" name="name" id="update-recipe-nombre" class="form-control" required="required" value="${r.getNombre()}" />
 						                            </div>
 						                            <div class="form-group text-left">
 						                                <label for="update-student-surnames" class="required">Apellidos</label>
-						                                <textarea name="ingredientes" id="update-recipe-ingredientes" class="form-control" required="required">${r.getIngredientes()}</textarea>
+						                                <textarea name="ingredients" id="update-recipe-ingredientes" class="form-control" required="required">${r.getIngredientes()}</textarea>
 						                            </div>
 						                            <div class="form-group text-left">
 						                                <label for="update-student-birth" class="required">Fecha de nacimiento</label>
-						                                <textarea name="descripcion" id="update-recipe-receta" class="form-control" required="required">${r.getDescripcion()}</textarea>
+						                                <textarea name="recipe" id="update-recipe-receta" class="form-control" required="required">${r.getDescripcion()}</textarea>
 						                            </div>
 						                            <div class="text-center mt-20">
 						                            <a class="btn mr-5" href="#" type="button">Cancelar</a>

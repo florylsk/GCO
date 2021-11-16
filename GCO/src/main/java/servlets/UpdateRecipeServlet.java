@@ -31,14 +31,14 @@ import beans.*;
 
 
 
-@WebServlet(urlPatterns = {"/addRecipe" })
-public class AddRecipeServlet extends HttpServlet{
+@WebServlet(urlPatterns = {"/updateRecipe" })
+public class UpdateRecipeServlet extends HttpServlet{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AddRecipeServlet() {
+	public UpdateRecipeServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -47,21 +47,22 @@ public class AddRecipeServlet extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 		    throws ServletException, IOException{
-		
 		req.setCharacterEncoding("UTF-8");
+		String _id=req.getParameter("id");
+		int id=Integer.parseInt(_id);
 		String nombre= req.getParameter("name");
 		String ingredientes= req.getParameter("ingredients");
 		String descripcion= req.getParameter("recipe");
-		Recipe r = new Recipe(nombre,ingredientes,descripcion);
-		int status = RecipeDAO.createRecipe(r);
+		Recipe r = new Recipe(id,nombre,ingredientes,descripcion);
+		int status = RecipeDAO.updateRecipe(r);
 		//atributo para el modal del jsp
 		if (status!=-1) {
-			req.setAttribute("correctAddedRecipe", true);
+			req.setAttribute("correctUpdatedRecipe", true);
 		}
 		else {
-			req.setAttribute("incorrectAddedRecipe", true);
+			req.setAttribute("incorrectUpdatedRecipe", true);
 		}
-		req.getRequestDispatcher("index.jsp").forward(req, res);
+		req.getRequestDispatcher("search.jsp").forward(req, res);
 		
 		
 	}

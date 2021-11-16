@@ -80,6 +80,47 @@ public class RecipeDAO{
 		return recetas;
 	}
 	
+	public static int updateRecipe(Recipe recipe) {
+		int status=0;
+		try {
+			Connection con=connectionDB.getConnection();
+			PreparedStatement ps=con.prepareStatement("set NAMES utf8");
+			boolean _status=ps.execute();
+			ps=con.prepareStatement("update recetas set nombre=?,ingredientes=?,descripcion=? where id=?");
+			ps.setString(1, recipe.getNombre());
+			ps.setString(2, recipe.getIngredientes());
+			ps.setString(3, recipe.getDescripcion());
+			ps.setInt(4, recipe.getId());
+			status=ps.executeUpdate();
+			con.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return status;
+	
+		
+	}
+	
+	public static int deleteRecipe(int id) {
+		int status=0;
+		try {
+			Connection con=connectionDB.getConnection();
+			
+			PreparedStatement ps=con.prepareStatement("delete from recetas where id=?");
+			ps.setInt(1, id);
+			status=ps.executeUpdate();
+			con.close();
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return status;
+	}
+	
 	
 	
 	

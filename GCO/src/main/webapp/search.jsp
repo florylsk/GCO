@@ -222,7 +222,7 @@
 						                            </div>
 						                            <div class="text-center mt-20">
 						                            <a class="btn mr-5" href="#" type="button">Cancelar</a>
-						                            <input class="btn btn-primary" type="submit" value="Modificar estudiante">
+						                            <input class="btn btn-primary" type="submit" value="Modificar Receta">
 						                      	    </div>
 						                        </form>
                         
@@ -241,7 +241,7 @@
                  						 <div class="text-center">
                        						 <form action="deleteRecipe" method="post">
                        					<a class="btn mr-5" href="#"  type="button">Cancelar</a>
-										<button type="submit"name="id" value="${r.getId()}"class="btn btn-danger" type="button" >Borrar Estudiante</button>
+										<button type="submit"name="id" value="${r.getId()}"class="btn btn-danger" type="button" >Borrar Receta</button>
 							</form>
                         
                    					 </div>

@@ -116,8 +116,10 @@
                     </div>
                     
                     <div class="container-fluid">
-                    	<p style="font-size:3rem;line-height:1.3;">¡Bienvenido a Almon!</p>
+                    	<p style="font-size:3rem;line-height:1;">¡Bienvenido a Almon!</p>
                         <button class="btn" type="button" onclick="toastAlert()">Perfiles por defecto</button>
+                        <br/>
+                         <br/>
                         <button class="btn btn-primary" type="button" onclick="showLogin()" id="login-switch">Iniciar Sesión</button>
                         <button class="btn" type="button" onclick="showRegistration()" id="register-switch">Registro</button>
                         <div class="row">

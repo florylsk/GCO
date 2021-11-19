@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width" />
 
         <%-- Title --%>
-        <title>Recipes - GCO</title>
+        <title>Users - GCO</title>
 
         <%-- CSS and JS--%>
         <link href="${pageContext.request.contextPath}/resources/css/halfmoon-variables.min.css" rel="stylesheet" />

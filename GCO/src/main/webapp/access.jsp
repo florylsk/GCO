@@ -107,7 +107,7 @@
             <%-- Content wrapper --%>
             <div class="content-wrapper mw-full text-center" style="position:relative;display:flex;align-items:center;justify-content:center;">
 		           
-            	<img alt="fondo" src="${pageContext.request.contextPath}/resources/images/fondov3.jpg" style="width: 100%;height:100%;">
+            	<img alt="fondo" src="${pageContext.request.contextPath}/resources/images/store_background.jpg" style="width: 100%;height:100%;">
                 <div class="card mw-800 w-lg-600 left-auto right-auto d-inline-block" style="position:absolute;">
                     <%-- When responsive mode is active, this div is shown hiding the left column --%>
                     <div class="text-center d-inline-block d-lg-none">

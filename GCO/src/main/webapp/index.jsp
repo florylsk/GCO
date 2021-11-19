@@ -161,6 +161,7 @@
                     <div class="modal-content">
                         <h5 class="modal-title text-center">Añadir Receta</h5>
                         <form id="add-recipe" action="addRecipe" method="post">
+                        <input type="hidden" id="add-recipe-page" name="JSP" value="index">
                             <div class="form-group">
                                 <label for="create-student-firstname" class="required">Nombre</label>
                                 <input type="text" name="name" id="create-recipe-name" class="form-control" required="required" placeholder="Nombre de la receta"/>

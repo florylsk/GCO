@@ -31,14 +31,14 @@ import beans.*;
 
 
 
-@WebServlet(urlPatterns = {"/addRecipe" })
-public class AddRecipeServlet extends HttpServlet{
+@WebServlet(urlPatterns = {"/updateUser" })
+public class UpdateUserServlet extends HttpServlet{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AddRecipeServlet() {
+	public UpdateUserServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -47,32 +47,23 @@ public class AddRecipeServlet extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 		    throws ServletException, IOException{
-		
 		req.setCharacterEncoding("UTF-8");
-		String nombre= req.getParameter("name");
-		String ingredientes= req.getParameter("ingredients");
-		String descripcion= req.getParameter("recipe");
-		Recipe r = new Recipe(nombre,ingredientes,descripcion);
-		int status = RecipeDAO.createRecipe(r);
+		String username=req.getParameter("username");
+		String firstname= req.getParameter("firstname");
+		String lastname= req.getParameter("lastname");
+		String password= req.getParameter("password");
+		String mail= req.getParameter("mail");
+		User u = new User(username,password,firstname,lastname,mail,false);
+		int status = userDAO.updateUser(u);
 		//atributo para el modal del jsp
 		if (status!=-1) {
-			req.setAttribute("correctAddedRecipe", true);
+			req.setAttribute("correctUpdatedUser", true);
 		}
 		else {
-			req.setAttribute("incorrectAddedRecipe", true);
+			req.setAttribute("incorrectUpdatedUser", true);
 		}
-		String URI = req.getParameter("JSP");
-		if (URI.equals("index")) {
-		req.getRequestDispatcher("index.jsp").forward(req, res);
-		}
-		else if (URI.equals("recipesAdmin")) {
-		req.getRequestDispatcher("recipesAdmin.jsp").forward(req, res);
-
-		}
-		else {
-			req.getRequestDispatcher("search.jsp").forward(req, res);
-
-		}
+		req.getRequestDispatcher("usersAdmin.jsp").forward(req, res);
+		
 		
 	}
 	

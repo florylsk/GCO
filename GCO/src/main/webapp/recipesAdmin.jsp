@@ -9,147 +9,32 @@
         <meta name="viewport" content="width=device-width" />
 
         <%-- Title --%>
-        <title>Search - GCO</title>
+        <title>Recipes - GCO</title>
 
         <%-- CSS and JS--%>
         <link href="${pageContext.request.contextPath}/resources/css/halfmoon-variables.min.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/resources/js/halfmoon.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/fa.7465cf6e1c.js"></script>
-        <script type="text/javascript">
-  			function correct_Update(){
-	         	halfmoon.initStickyAlert({
-		        content: "Receta modificada con éxito",
-		        title: "Éxito",
-		        alertType: "alert-success",
-		        hasDismissButton: true,
-		        timeShown: 5000,
-		    })
-				}
-  			function incorrect_Update(){
-	         	halfmoon.initStickyAlert({
-		        content: "La receta no ha podido ser modificada",
-		        title: "Algo ha ido mal",
-		        alertType: "alert-danger",
-		        hasDismissButton: true,
-		        timeShown: 5000,
-		    })
-				}
-  			function correct_Delete(){
-	         	halfmoon.initStickyAlert({
-		        content: "Receta eliminada con éxito",
-		        title: "Éxito",
-		        alertType: "alert-success",
-		        hasDismissButton: true,
-		        timeShown: 5000,
-		    })
-				}
-  			function incorrect_Delete(){
-	         	halfmoon.initStickyAlert({
-		        content: "La receta no ha podido ser eliminada",
-		        title: "Algo ha ido mal",
-		        alertType: "alert-danger",
-		        hasDismissButton: true,
-		        timeShown: 5000,
-		    })
-				}
-  			function correct_Add(){
-	         	halfmoon.initStickyAlert({
-		        content: "Receta añadida con éxito",
-		        title: "Éxito",
-		        alertType: "alert-success",
-		        hasDismissButton: true,
-		        timeShown: 5000,
-		    })
-				}
-  			function incorrect_Add(){
-	         	halfmoon.initStickyAlert({
-		        content: "Algo ha ido mal",
-		        title: "Receta no añadida",
-		        alertType: "alert-danger",
-		        hasDismissButton: true,
-		        timeShown: 5000,
-		    })
-				}
-  		</script>
-        
-
 </head>
 <body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-set-preferred-mode-onload="true">
 		<%@page import="beans.*,java.util.*"%>  
 		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 		
 		
+		
+		
+		
+		
 		<div  class="page-wrapper with-navbar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
 		<%-- Sticky alerts (toasts), empty container --%>
             <div class="sticky-alerts"></div>
-			 <c:if test="${correctUpdatedRecipe == true}">
-				 				<script>
-				 				 window.onload = function() {
-				 				    correct_Update();
-				 				  };
-						         	</script>
-						         	
-									<%
-										request.setAttribute("correctUpdatedRecipe",false);
-									%>
-						    	 </c:if>
-			 <c:if test="${incorrectUpdatedRecipe == true}">
-				 				<script>
-				 				 window.onload = function() {
-				 				    incorrect_Update();
-				 				  };
-						         	</script>
-						         	
-									<%
-										request.setAttribute("incorrectUpdatedRecipe",false);
-									%>
-						    	 </c:if>
-			 <c:if test="${correctDeletedRecipe == true}">
-				 				<script>
-				 				 window.onload = function() {
-				 				    correct_Delete();
-				 				  };
-						         	</script>
-						         	
-									<%
-										request.setAttribute("correctDeletedRecipe",false);
-									%>
-						    	 </c:if>
-			 <c:if test="${incorrectDeletedRecipe == true}">
-				 				<script>
-				 				 window.onload = function() {
-				 				    incorrect_Delete();
-				 				  };
-						         	</script>
-						         	
-									<%
-										request.setAttribute("incorrectDeletedRecipe",false);
-									%>
-						    	 </c:if>
-			<c:if test="${correctAddedRecipe == true}">
-				 				<script>
-				 				 window.onload = function() {
-				 				    correct_Add();
-				 				  };
-						         	</script>
-						         	
-									<%
-										request.setAttribute("correctAddedRecipe",false);
-									%>
-						    	 </c:if>
-			 <c:if test="${incorrectAddedRecipe == true}">
-				 				<script>
-				 				 window.onload = function() {
-				 				    incorrect_Add();
-				 				  };
-						         	</script>
-						         	
-									<%
-										request.setAttribute("incorrectAddedRecipe",false);
-									%>
-						    	 </c:if>
-		
-		<nav class="navbar">
+            
+            
+            
+        
+            
+        <%-- Navbar --%>
+            <nav class="navbar">
 		            <div class="navbar-content">
 		         <button id="toggle-sidebar-btn" class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
 		             <i class="fas fa-bars"></i>
@@ -159,14 +44,15 @@
                 <a href="index.jsp" class="navbar-brand font-size-16">
                     <img alt="UPFV Dark Mode Logo" class="hidden-lm" src="${pageContext.request.contextPath}/resources/images/logo_white_small.png">
                     <img alt="UPFV Light Mode Logo" class="hidden-dm" src="${pageContext.request.contextPath}/resources/images/logo_black_small.png">
-                    Almon
+                    Administración
                 </a>
                 <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
           			<li class="nav-item">
-           				 <a href="index.jsp" class="nav-link">Home</a>
-      			 
-      			  <li class="nav-item active">
-           				 <a href="search.jsp" class="nav-link">Search</a>
+           				 <a href="admin.jsp" class="nav-link">Home</a>
+           		    <li class="nav-item active">
+           				 <a href="recipesAdmin.jsp" class="nav-link">Recetas</a>
+      			  	<li class="nav-item">
+           				 <a href="usersAdmin.jsp" class="nav-link">Usuarios</a>
       			  </ul>
                 <%-- Navbar form. Here, search, help and profile buttons are shown --%>
                 <div class="navbar-content d-none d-md-flex ml-auto">
@@ -199,11 +85,11 @@
 				
             </nav>
             
-            <!-- search -->
+            
             
             <div class="content-wrapper ">
             
-	            <div class="w-400 m-auto my-20">
+            <div class="w-400 m-auto my-20">
 	                	<form action="searchRecipes" class="form-inline" method="post" >
 	   							<input type="text" id="searchInput" class="form-control" name="keyword" placeholder="Introduzca una palabra clave" title="Búsqueda de recetas">		
 	 							<input class="btn btn-primary" type="submit" value="Buscar">
@@ -219,7 +105,7 @@
                     <div class="modal-content">
                         <h5 class="modal-title text-center">Añadir Receta</h5>
                         <form id="add-recipe" action="addRecipe" method="post">
-                        <input type="hidden" id="add-recipe-page" name="JSP" value="search">
+                        <input type="hidden" id="add-recipe-page" name="JSP" value="recipesAdmin">
                             <div class="form-group">
                                 <label for="create-student-firstname" class="required">Nombre</label>
                                 <input type="text" name="name" id="create-recipe-name" class="form-control" required="required" placeholder="Nombre de la receta"/>
@@ -416,6 +302,20 @@
 	            	<div class="divider mt-0 mb-5 border-bottom"></div>
 	           </div>
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             </div>
             
             
@@ -426,7 +326,11 @@
             
             
             
-            <nav class="navbar navbar-fixed-bottom">
+            
+            
+            
+            
+                     <nav class="navbar navbar-fixed-bottom">
                 	<div class="container-fluid">
                    	 <ul class="navbar-nav ml-auto">
                       	  <li class="nav-item">
@@ -437,30 +341,10 @@
                	 </div>
 			</nav>
 		</div>
-            
-            
-            
-          		
+     		
 
 	
 
 	</body>
 
-</html>  
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+</html>    

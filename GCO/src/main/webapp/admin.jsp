@@ -49,6 +49,10 @@
                 <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
           			<li class="nav-item active">
            				 <a href="admin.jsp" class="nav-link">Home</a>
+           		    <li class="nav-item">
+           				 <a href="recipesAdmin.jsp" class="nav-link">Recetas</a>
+      			  	<li class="nav-item">
+           				 <a href="usersAdmin.jsp" class="nav-link">Usuarios</a>
       			  </ul>
                 <%-- Navbar form. Here, search, help and profile buttons are shown --%>
                 <div class="navbar-content d-none d-md-flex ml-auto">

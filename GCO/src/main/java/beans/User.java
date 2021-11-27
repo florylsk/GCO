@@ -7,6 +7,7 @@ public class User{
 	private String firstname;
 	private String lastname;
 	private String mail;
+	private byte[] photo;
 	private boolean isAdmin;
 	
 	
@@ -23,6 +24,16 @@ public class User{
 		this.lastname=lastname;
 		this.mail=mail;
 		this.isAdmin=isAdmin;
+		this.photo=null;
+	}
+	public User(String username, String password, String firstname, String lastname, String mail, boolean isAdmin, byte[] photo) {
+		this.username=username;
+		this.password=password;
+		this.firstname=firstname;
+		this.lastname=lastname;
+		this.mail=mail;
+		this.isAdmin=isAdmin;
+		this.photo=photo;
 	}
 	
 	
@@ -76,6 +87,12 @@ public class User{
 
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+	public byte[] getPhoto() {
+		return photo;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
 	}
 	
 

@@ -154,7 +154,7 @@
                                     <input class="btn btn-primary" type="submit" value="Iniciar sesión">
                                 </form>
                                 
-                                <form id="register" class="mt-20 text-center mr-10 ml-10 d-none" action="userreg" method="post">
+                                <form id="register" class="mt-20 text-center mr-10 ml-10 d-none" action="userreg" method="post" enctype="multipart/form-data">
                                     <h4>Registro</h4>
                                     <div class="form-group">
                                             <label for="register-firstname" class="required">Nombre</label>
@@ -175,15 +175,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="register-user" class="required">Usuario</label>
-                                            <div class="input-group mw-full text-center">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                                </div>
-                                                <input type="text" class="form-control" name="username" placeholder="Usuario" id="register-user" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="register-email" class="required">E-Mail</label>
                                             <div class="input-group mw-full text-center">
                                                 <div class="input-group-prepend">
@@ -194,6 +185,21 @@
                                             <p class="mt-0 mb-0 text-muted">Ej.: john.doe@domain.extension</p>
                                         </div>
                                         <div class="form-group">
+			                           		 <div class="custom-file">
+			                                	<input type="file" name="photo" id="create-user-photo"/>
+			                                	<label for="create-user-photo">Escoja una foto</label>
+			                                </div>
+			                            </div>
+                                        <div class="form-group">
+                                            <label for="register-user" class="required">Usuario</label>
+                                            <div class="input-group mw-full text-center">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="username" placeholder="Usuario" id="register-user" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="register-password" class="required">Contraseña</label>
                                             <div class="input-group mw-full text-center">
                                                 <div class="input-group-prepend">
@@ -202,7 +208,9 @@
                                                 <input type="password" class="form-control" name="password" placeholder="Contraseña" id="register-password" />
                                             </div>
                                         </div>
-                                        <input class="btn btn-primary" type="submit" value="Iniciar sesión">
+                                        
+                                        
+                                        <input class="btn btn-primary" type="submit" value="Registrar">
                                 </form>
                             </div>
                         </div>

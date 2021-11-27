@@ -237,7 +237,6 @@
 						                                <label for="update-user-mail" class="required">E-Mail</label>
 						                                <input type="text" name="mail" id="update-user-mail" class="form-control" required="required" value="${u.getMail()}" />
 						                            </div>
-						                            
 						                            <div class="text-center mt-20">
 						                            <a class="btn mr-5" href="#" type="button">Cancelar</a>
 						                            <input class="btn btn-primary" type="submit" value="Modificar Usuario">

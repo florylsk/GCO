@@ -1,4 +1,6 @@
 -- Crear base de datos y el usuario para controlarla
+DROP USER IF EXISTS 'GCO'@'localhost';
+DROP DATABASE IF EXISTS GCO;
 CREATE DATABASE GCO;
 CREATE USER 'GCO'@'localhost' IDENTIFIED BY 'Kappa123';
 GRANT ALL PRIVILEGES ON GCO.* TO 'GCO'@'localhost';
@@ -6,8 +8,8 @@ FLUSH PRIVILEGES;
 
 use GCO;
 drop table if exists users;
-create table users(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null);
-insert into users values('ajimenez','Y9gMQe&3A?','Alvaro','Jimenez','ajimenez@test.com');
+create table users(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null, photo mediumblob);
+insert into users values('ajimenez','Y9gMQe&3A?','Alvaro','Jimenez','ajimenez@test.com',null);
 
 drop table if exists admins;
 create table admins(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null);

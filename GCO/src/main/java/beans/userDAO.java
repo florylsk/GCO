@@ -13,12 +13,13 @@ public class userDAO{
 		int status=0;
 		try {
 			Connection con=connectionDB.getConnection();
-			PreparedStatement ps= con.prepareStatement("insert into users(username,password,firstname,lastname,mail) values(?,?,?,?,?)");
+			PreparedStatement ps= con.prepareStatement("insert into users(username,password,firstname,lastname,mail,photo) values(?,?,?,?,?,?)");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			ps.setString(3, user.getFirstname());
 			ps.setString(4, user.getLastname());
 			ps.setString(5, user.getMail());  
+			ps.setBytes(6, user.getPhoto());
 			status=ps.executeUpdate();
 			con.close();
 		}
@@ -81,7 +82,7 @@ public class userDAO{
 			PreparedStatement ps=con.prepareStatement("select * from users");
 			ResultSet rs=ps.executeQuery();
 			while (rs.next()) {
-				User u = new User(rs.getString("username"),rs.getString("password"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("mail"),false); 
+				User u = new User(rs.getString("username"),rs.getString("password"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("mail"),false,rs.getBytes("photo")); 
 				users.add(u);
 			}
 			con.close();
@@ -97,15 +98,15 @@ public class userDAO{
 	}
 	
 	
-	public static User getStudentByUsername(String username) {
+	public static User getUserByUsername(String username) {
 		User u = null;
 		try {
 			Connection con=connectionDB.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from students where username=?");
+			PreparedStatement ps=con.prepareStatement("select * from users where username=?");
 			ps.setString(1, username);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()) {
-				u=new User(rs.getString("username"),rs.getString("password"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("mail"),false);
+				u=new User(rs.getString("username"),rs.getString("password"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("mail"),false,rs.getBytes("photo"));
 			}	
 			con.close();
 		}

@@ -3,6 +3,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,6 +47,12 @@ public class UserLoginServlet extends HttpServlet{
 				session.setAttribute("apellido", user.getLastname());
 				session.setAttribute("username", user.getUsername());
 				session.setAttribute("isAdmin", false);
+				if(user.getPhoto()!=null) {
+				byte[] temp=Base64.getEncoder().encode(user.getPhoto());
+				String B64 = new String(temp);
+				session.setAttribute("photo", B64);
+				System.out.print(B64);
+				}
 				req.getRequestDispatcher("index.jsp").forward(req, res);
 				
 				

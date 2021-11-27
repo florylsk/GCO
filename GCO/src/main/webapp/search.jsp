@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width" />
 
         <%-- Title --%>
-        <title>Search - GCO</title>
+        <title>Recetas - GCO</title>
 
         <%-- CSS and JS--%>
         <link href="${pageContext.request.contextPath}/resources/css/halfmoon-variables.min.css" rel="stylesheet" />
@@ -166,7 +166,7 @@
            				 <a href="index.jsp" class="nav-link">Home</a>
       			 
       			  <li class="nav-item active">
-           				 <a href="search.jsp" class="nav-link">Search</a>
+           				 <a href="search.jsp" class="nav-link">Recetas</a>
       			  </ul>
                 <%-- Navbar form. Here, search, help and profile buttons are shown --%>
                 <div class="navbar-content d-none d-md-flex ml-auto">
@@ -185,7 +185,14 @@
                         <%-- Content --%>
                         <div class="dropdown-menu dropdown-menu-right w-300" aria-labelledby="navbar-dropdown-profile">
                             <div class="inline-block text-center mw-full mt-10">
-                                <img alt="Profile image" src="${pageContext.request.contextPath}/resources/images/profile.jpeg" id="profile-image" class="inline w-150" />
+                                 <c:choose>
+							    <c:when test="${photo == null}">
+							    	<img alt="Profile image" src="${pageContext.request.contextPath}/resources/images/profile.jpeg" id="profile-image" class="inline w-150" />
+							    </c:when>    
+							    <c:otherwise>
+							   		<img alt="Profile image" src="data:image/png;base64, ${photo}" id="profile-image" class="inline w-150" />
+							    </c:otherwise>
+							</c:choose>
                             </div>
                             <div class="dropdown-item text-center font-size-20" id="profile-name">${nombre} ${apellido}</div>
                             <a href="#" class="dropdown-item" onclick="halfmoon.toggleDarkMode()">

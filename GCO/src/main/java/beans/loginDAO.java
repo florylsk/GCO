@@ -22,6 +22,7 @@ public class loginDAO{
 				access=1;
 				user.setFirstname(rs.getString(3));
 				user.setLastname(rs.getString(4));
+				user.setPhoto(rs.getBytes("photo"));
 				user.setAdmin(false);
 			}
 			else {

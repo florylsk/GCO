@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.Base64;
 
 public class User{
 	private String username;
@@ -95,6 +96,12 @@ public class User{
 		this.photo = photo;
 	}
 	
+	public String getPhotoB64(byte[] photo) {
+		if(photo==null) return null;
+		byte[] temp=Base64.getEncoder().encode(photo);
+		String B64 = new String(temp);
+		return B64;
+	}
 
 
 	

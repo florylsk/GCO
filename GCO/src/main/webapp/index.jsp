@@ -203,6 +203,12 @@
 				               			 	<h3 class="text-center font-weight-bold">${Receta.getNombre()}</h3>
 				               			 	 <div class="card p-0">
 							                    <div class="content">
+							                    <c:choose>
+	            									<c:when test="${Receta.getPhotoB64(Receta.getPhoto()) != null}">
+	                       						   <h5 class="modal-text text-left font-weight-bold">Foto</h5>
+	                       						   <img id="photo-${Receta.getId()}" src="data:image/png;base64, ${Receta.getPhotoB64(Receta.getPhoto())}" class="img-fluid">
+                       						   </c:when>
+                       						   </c:choose>
 							                      <h2 class="content-title font-weight-bold">
 							                        Ingredientes
 							                      </h2>

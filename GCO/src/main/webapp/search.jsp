@@ -225,12 +225,18 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <h5 class="modal-title text-center">Añadir Receta</h5>
-                        <form id="add-recipe" action="addRecipe" method="post">
+                        <form id="add-recipe" action="addRecipe" method="post" enctype="multipart/form-data">
                         <input type="hidden" id="add-recipe-page" name="JSP" value="search">
                             <div class="form-group">
                                 <label for="create-student-firstname" class="required">Nombre</label>
                                 <input type="text" name="name" id="create-recipe-name" class="form-control" required="required" placeholder="Nombre de la receta"/>
                             </div>
+                            <div class="form-group">
+                           		 <div class="custom-file">
+                                	<input type="file" name="photo" id="create-recipe-photo"/>
+                                	<label for="create-recipe-photo">Escoja una foto</label>
+                                </div>
+			                </div>
                             <div class="form-group">
                                 <label for="create-student-ingredients" class="required">Ingredientes</label>
                                 <textarea name="ingredients" id="create-recipe-ingredients" class="form-control" required="required" placeholder="Ingredientes de la receta"></textarea>
@@ -268,7 +274,17 @@
            
 	            <c:forEach items="${recipesSearched}" var="r">
 	            	<tr>
-	            		<td><a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a></td>	
+	            		<td>
+	            		<c:choose>
+	            			<c:when test="${r.getPhotoB64(r.getPhoto()) != null}">
+	            				<img id="photo-${r.getId()}" src="data:image/png;base64, ${r.getPhotoB64(r.getPhoto())}" height="50" style="border-radius: 50%;vertical-align: middle;display: inline-block;">
+	            				</c:when>
+	            			<c:otherwise>
+	            			
+	            			</c:otherwise>
+	            		</c:choose>
+	            		<a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a>
+	            		</td>	
 	            		<td class="text text-right">
 	            		  <a href="#modal-update-recipe-${r.getId()}" class="btn btn-square btn-primary ml-5" role="button"><i class="fas fa-edit"></i></a>
 	            		  <a href="#modal-delete-recipe-${r.getId()}" class="btn btn-square btn-danger ml-5" role="button"><i class="fas fa-trash"></i></a>	  
@@ -278,7 +294,19 @@
 	            	<div class="modal modal-full" id="modal-description-receta-${r.getId()}" tabindex="-1" role="dialog">
               							  <div class="modal-dialog" role="document">
                    							 <div class="modal-content"> 
+                   							 <div class="text-right">
+                   							 	<a href="#" class="btn btn-danger" role="button" aria-label="Close">
+							                    <span aria-hidden="true">Cerrar</span>
+							               		 </a>
+							               		 </div>
                        						   <h4 class="modal-text text-center font-weight-bold">${r.getNombre()}</h4>
+                       						   <c:choose>
+	            									<c:when test="${r.getPhotoB64(r.getPhoto()) != null}">
+	                       						   <h5 class="modal-text text-left font-weight-bold">Foto</h5>
+	                       						   <img id="photo-${r.getId()}" src="data:image/png;base64, ${r.getPhotoB64(r.getPhoto())}" class="img-fluid">
+                       						   </c:when>
+                       						   </c:choose>
+                       						 
                        						   <h5 class="modal-text text-left font-weight-bold">Ingredientes</h5>
                        						   <p>${r.getIngredientes()}<p>
                        						   <h5 class="modal-text text-left font-weight-bold">Receta</h5>
@@ -343,7 +371,17 @@
 					%> 
 	            	<c:forEach items="${allRecipes}" var="r">
 	            	<tr>
-	            		<td><a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a></td>	
+	            		<td>
+	            		<c:choose>
+	            			<c:when test="${r.getPhotoB64(r.getPhoto()) != null}">
+	            				<img id="photo-${r.getId()}" src="data:image/png;base64, ${r.getPhotoB64(r.getPhoto())}" height="50" style="border-radius: 50%;vertical-align: middle;display: inline-block;">
+	            				</c:when>
+	            			<c:otherwise>
+	            			
+	            			</c:otherwise>
+	            		</c:choose>
+	            		<a href="#modal-description-receta-${r.getId()}">${r.getNombre()}</a>
+	            		</td>	
 	            		<td class="text text-right">
 	            		  <a href="#modal-update-recipe-${r.getId()}" class="btn btn-square btn-primary ml-5" role="button"><i class="fas fa-edit"></i></a>
 	            		  <a href="#modal-delete-recipe-${r.getId()}" class="btn btn-square btn-danger ml-5" role="button"><i class="fas fa-trash"></i></a>	  
@@ -353,7 +391,19 @@
 	            	<div class="modal modal-full" id="modal-description-receta-${r.getId()}" tabindex="-1" role="dialog">
               							  <div class="modal-dialog" role="document">
                    							 <div class="modal-content"> 
+                   							 <div class="text-right">
+                   							 	<a href="#" class="btn btn-danger" role="button" aria-label="Close">
+							                    <span aria-hidden="true">Cerrar</span>
+							               		 </a>
+							               		 </div>
                        						   <h4 class="modal-text text-center font-weight-bold">${r.getNombre()}</h4>
+                       						   
+                       						   <c:choose>
+	            									<c:when test="${r.getPhotoB64(r.getPhoto()) != null}">
+	                       						   <h5 class="modal-text text-left font-weight-bold">Foto</h5>
+	                       						   <img id="photo-${r.getId()}" src="data:image/png;base64, ${r.getPhotoB64(r.getPhoto())}" class="img-fluid">
+                       						   </c:when>
+                       						   </c:choose>
                        						   <h5 class="modal-text text-left font-weight-bold">Ingredientes</h5>
                        						   <p>${r.getIngredientes()}<p>
                        						   <h5 class="modal-text text-left font-weight-bold">Receta</h5>

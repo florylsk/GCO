@@ -21,7 +21,7 @@ public class RecipeDAO{
 			PreparedStatement ps=con.prepareStatement("select * from recetas");
 			ResultSet rs=ps.executeQuery();
 			while (rs.next()) {
-				Recipe s = new Recipe(rs.getInt("id"),rs.getString("nombre"),rs.getString("ingredientes"),rs.getString("descripcion")); 
+				Recipe s = new Recipe(rs.getInt("id"),rs.getString("nombre"),rs.getString("ingredientes"),rs.getString("descripcion"), rs.getBytes("photo")); 
 				recetas.add(s);
 			}
 			con.close();
@@ -41,10 +41,11 @@ public class RecipeDAO{
 		int status=0;
 		try {
 			Connection con=connectionDB.getConnection();
-			PreparedStatement ps= con.prepareStatement("insert into recetas(nombre,ingredientes,descripcion) values(?,?,?)");
+			PreparedStatement ps= con.prepareStatement("insert into recetas(nombre,ingredientes,descripcion,photo) values(?,?,?,?)");
 			ps.setString(1, recipe.getNombre());
 			ps.setString(2, recipe.getIngredientes());
 			ps.setString(3, recipe.getDescripcion());
+			ps.setBytes(4, recipe.getPhoto());
 			status=ps.executeUpdate();
 			con.close();
 		}
@@ -65,7 +66,7 @@ public class RecipeDAO{
 			ps.setString(3, _keyword);
 			ResultSet rs=ps.executeQuery();
 			while (rs.next()) {
-				Recipe s = new Recipe(rs.getInt("id"),rs.getString("nombre"),rs.getString("ingredientes"),rs.getString("descripcion")); 
+				Recipe s = new Recipe(rs.getInt("id"),rs.getString("nombre"),rs.getString("ingredientes"),rs.getString("descripcion"), rs.getBytes("photo")); 
 				recetas.add(s);
 			}
 			con.close();

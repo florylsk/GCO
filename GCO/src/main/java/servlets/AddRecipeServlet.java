@@ -32,6 +32,7 @@ import beans.*;
 
 
 @WebServlet(urlPatterns = {"/addRecipe" })
+@MultipartConfig
 public class AddRecipeServlet extends HttpServlet{
 	/**
 	 * 
@@ -49,10 +50,21 @@ public class AddRecipeServlet extends HttpServlet{
 		    throws ServletException, IOException{
 		
 		req.setCharacterEncoding("UTF-8");
+		//procesar la foto enviada por el post request, si no hay foto no hace nada
+		Part filePart = req.getPart("photo");
+		byte[] data = null;
+		if (filePart.getSize()>0) {
+		    data = new byte[(int) filePart.getSize()];
+		    filePart.getInputStream().read(data, 0, data.length);
+		}
+				
 		String nombre= req.getParameter("name");
 		String ingredientes= req.getParameter("ingredients");
 		String descripcion= req.getParameter("recipe");
 		Recipe r = new Recipe(nombre,ingredientes,descripcion);
+		if (data!=null) {
+			r.setPhoto(data);
+		}
 		int status = RecipeDAO.createRecipe(r);
 		//atributo para el modal del jsp
 		if (status!=-1) {

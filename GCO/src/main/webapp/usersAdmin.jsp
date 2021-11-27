@@ -200,6 +200,14 @@
             		<c:forEach items="${users}" var="u">
         		    			<tr>
         		    				<th>
+        		    				<c:choose>
+				            			<c:when test="${u.getPhotoB64(u.getPhoto()) != null}">
+				            				<img id="photo-${u.getUsername()}" src="data:image/png;base64, ${u.getPhotoB64(u.getPhoto())}" height="50" style="border-radius: 50%;vertical-align: middle;display: inline-block;">
+				            				</c:when>
+				            			<c:otherwise>
+				            			
+				            			</c:otherwise>
+				            		</c:choose>
         		    					${u.getUsername()}
         		    				</th>
         		    				<td>

@@ -38,7 +38,8 @@ public class ShowRecipeServlet extends HttpServlet{
 				String varNombre=(r.getNombre());
 				String varDes=(r.getDescripcion());
 				String varIng=(r.getIngredientes());
-				receta= new Recipe(varId,varNombre,varIng,varDes);
+				byte[] photo = (r.getPhoto());
+				receta= new Recipe(varId,varNombre,varIng,varDes,photo);
 			}
 		}
 		

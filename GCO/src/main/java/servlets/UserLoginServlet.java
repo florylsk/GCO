@@ -72,7 +72,6 @@ public class UserLoginServlet extends HttpServlet{
 				byte[] temp=Base64.getEncoder().encode(user.getPhoto());
 				String B64 = new String(temp);
 				session.setAttribute("photo", B64);
-				System.out.print(B64);
 				}
 				req.getRequestDispatcher("index.jsp").forward(req, res);
 				

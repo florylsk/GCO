@@ -9,12 +9,12 @@ FLUSH PRIVILEGES;
 use GCO;
 drop table if exists users;
 create table users(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null, photo mediumblob);
-insert into users values('ajimenez','Y9gMQe&3A?','Alvaro','Jimenez','ajimenez@test.com',null);
+insert into users values('ajimenez','ea656e55ff50a8182861aa536820dfe04af967fd8fd6f946aa4a435ecf6e3b05','Alvaro','Jimenez','ajimenez@test.com',null);
 
 drop table if exists admins;
 create table admins(username varchar(100) primary key, password varchar(100) not null, firstname varchar(100) not null, lastname varchar(100) not null, mail varchar(100) not null);
-insert into admins values('jalvarez','_m6A!GVqVe','Javier','Alvarez','jalvarez@test.com');
-insert into admins values('phernandez','+gnMN7Ve93','Pablo','Hernandez','phernandez@test.com');
+insert into admins values('jalvarez','80eb46f6a21696a3115e8c764888d1ef6c08c887f636e40d6f82a3eb6e837f60','Javier','Alvarez','jalvarez@test.com');
+insert into admins values('phernandez','ad5e950392eacccdcce4385579558a2855db43f354a238456e1c88d260021a45','Pablo','Hernandez','phernandez@test.com');
 
 drop table if exists recetas;
 create table recetas(id mediumint primary key AUTO_INCREMENT,nombre varchar(100), ingredientes varchar(500), descripcion varchar(2500));

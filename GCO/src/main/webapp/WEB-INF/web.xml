@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <servlet>
+  	<servlet-name>access</servlet-name>
+  	<jsp-file>access.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>index</servlet-name>
+  	<jsp-file>index.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>admin</servlet-name>
+  	<jsp-file>admin.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>recipesAdmin</servlet-name>
+  	<jsp-file>recipesAdmin.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>search</servlet-name>
+  	<jsp-file>search.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>usersAdmin</servlet-name>
+  	<jsp-file>usersAdmin.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>access</servlet-name>
+  	<url-pattern>/access</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>index</servlet-name>
+  	<url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>admin</servlet-name>
+  	<url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>recipesAdmin</servlet-name>
+  	<url-pattern>/recipesAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>search</servlet-name>
+  	<url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>usersAdmin</servlet-name>
+  	<url-pattern>/usersAdmin</url-pattern>
+  </servlet-mapping>
   <display-name>GCO</display-name>
   <welcome-file-list>
     <welcome-file>access.jsp</welcome-file>

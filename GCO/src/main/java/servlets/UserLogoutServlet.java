@@ -51,7 +51,7 @@ public class UserLogoutServlet extends HttpServlet{
 		int status=RecordDAO.createRecord(record);
 		}
 		session.invalidate();
-		res.sendRedirect("access.jsp");
+		res.sendRedirect("/GCO/access");
 	
     	
     	

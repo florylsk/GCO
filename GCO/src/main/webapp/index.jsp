@@ -206,7 +206,7 @@
 							                    <c:choose>
 	            									<c:when test="${Receta.getPhotoB64(Receta.getPhoto()) != null}">
 	                       						   <h5 class="modal-text text-left font-weight-bold">Foto</h5>
-	                       						   <img id="photo-${Receta.getId()}" src="data:image/png;base64, ${Receta.getPhotoB64(Receta.getPhoto())}" class="img-fluid">
+	                       						   <img id="photo-${Receta.getId()}" src="data:image/png;base64, ${Receta.getPhotoB64(Receta.getPhoto())}" height="400" style="vertical-align: middle;display: inline-block;">
                        						   </c:when>
                        						   </c:choose>
 							                      <h2 class="content-title font-weight-bold">

@@ -401,7 +401,7 @@
                        						   <c:choose>
 	            									<c:when test="${r.getPhotoB64(r.getPhoto()) != null}">
 	                       						   <h5 class="modal-text text-left font-weight-bold">Foto</h5>
-	                       						   <img id="photo-${r.getId()}" src="data:image/png;base64, ${r.getPhotoB64(r.getPhoto())}" class="img-fluid">
+	                       						   <img id="photo-${r.getId()}" src="data:image/png;base64, ${r.getPhotoB64(r.getPhoto())}" height="400" style="vertical-align: middle;display: inline-block;">
                        						   </c:when>
                        						   </c:choose>
                        						   <h5 class="modal-text text-left font-weight-bold">Ingredientes</h5>

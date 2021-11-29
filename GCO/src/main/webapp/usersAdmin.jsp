@@ -266,7 +266,7 @@
                  						 <div class="text-center">
                        						 <form action="deleteUser" method="post">
                        					<a class="btn mr-5" href="#"  type="button">Cancelar</a>
-										<button type="submit"name="username" value="${r.getUsername()}"class="btn btn-danger" type="button" >Borrar Usuario</button>
+										<button type="submit"name="username" value="${u.getUsername()}"class="btn btn-danger" type="button" >Borrar Usuario</button>
 								</form>
                         
                    					 </div>
